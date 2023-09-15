@@ -1,9 +1,9 @@
 # gtb-chatbot-frontend
 Follow these instructions to run the project 
 
-clone the git repository 
-install yarn using this command: npm install -g yarn
-open terminal or command prompt in the project folder
-type this command: yarn 
-it would install all the dependences
-after that enter this command: yarn start
+1.clone the git repository 
+2.install yarn using this command: npm install -g yarn
+3.open terminal or command prompt in the project folder
+4.type this command: yarn 
+5.it would install all the dependences
+6. after that enter this command: yarn start
