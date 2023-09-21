@@ -8,15 +8,15 @@ function FAQpage({ navigation }) {
     const [text, onChangeText] = React.useState('');
 
     const FAQsData = [
-        {  text: 'How do i find GTBank near me?',
+        { id:1, text: 'How do i find GTBank near me?',
         answer:'You can use the ATM/Branch Locator link on our website to find an ATM or branch near you. You will also see the address, phone number, hours and driving directions. We have branches and more than 2,000 ATMs throughout the whole nation.' },
-        {  text: 'How can i contact you by telephone?',
+        { id:2, text: 'How can i contact you by telephone?',
         answer:'You can use the ATM/Branch Locator link on our website to find an ATM or branch near you. You will also see the address, phone number, hours and driving directions. We have branches and more than 2,000 ATMs throughout the whole nation.'},
-        {  text: 'How do i change my address online ?',
+        { id:3, text: 'How do i change my address online ?',
         answer:'You can use the ATM/Branch Locator link on our website to find an ATM or branch near you. You will also see the address, phone number, hours and driving directions. We have branches and more than 2,000 ATMs throughout the whole nation.'},
-        {  text: 'Are you open on holidays?',
+        { id:4, text: 'Are you open on holidays?',
         answer:'You can use the ATM/Branch Locator link on our website to find an ATM or branch near you. You will also see the address, phone number, hours and driving directions. We have branches and more than 2,000 ATMs throughout the whole nation.'},
-        {  text: 'Can i make auto-loan payment online?',
+        { id:5, text: 'Can i make auto-loan payment online?',
         answer:'You can use the ATM/Branch Locator link on our website to find an ATM or branch near you. You will also see the address, phone number, hours and driving directions. We have branches and more than 2,000 ATMs throughout the whole nation.'},
         // Add more chat messages here...
       ];

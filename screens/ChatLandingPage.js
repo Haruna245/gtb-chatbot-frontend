@@ -81,7 +81,7 @@ button: {
     width:'15%',
     height:40,
     borderRadius:10,
-   // marginTop:10,
+    marginTop:30,
     //marginBottom:5
   },
   tinyLogo: {

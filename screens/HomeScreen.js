@@ -7,7 +7,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 
   function HomeScreen({ navigation }) {
-    const [text, onChangeText] = React.useState('');
+    const [accountID, onChangeText] = React.useState('');
+    const [password, onPassword] = React.useState('');
     return (
       <View style={{ flex: 1 }}>
         <ImageBackground
@@ -30,14 +31,15 @@ import { createStackNavigator } from '@react-navigation/stack';
           <TextInput
             style={styles.input}
             onChangeText={onChangeText}
-            value={text}
+            value={accountID}
             placeholder="account number"
           />
           <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
+            onChangeText={onPassword}
+            value={password}
             placeholder="password"
+            secureTextEntry
           />
           </View>
       

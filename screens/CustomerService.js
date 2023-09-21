@@ -1,11 +1,32 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Button,ImageBackground,TouchableOpacity,TextInput,Image } from 'react-native';
+import { StyleSheet, Text, View,Button,ImageBackground,TouchableOpacity,TextInput,Image,Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+//import { Platform } from 'react-native';
+//import * as Linking from 'expo-linking';
 
+if(Platform.OS !== 'web'){
+  Linking =  require('expo-linking');
+}
 
 export default function CustomerService({ navigation }){
+
+  const phoneNumber = '1234567890';
+  const mail = 'gtbank@gmail.com'
+  const openPhoneApp = (phoneNumber) => {
+    const telUrl = `tel:${phoneNumber}`;
+    
+    Linking.openURL(telUrl)
+      .catch((err) => console.error('Failed to open phone app:', err));
+  };
+
+  const openMailApp = (mail) => {
+    const telUrl = `mailto:${mail}`;
+    
+    Linking.openURL(telUrl)
+      .catch((err) => console.error('Failed to open phone app:', err));
+  };
     return (
         <View style={{ flex: 1 }}>
           <ImageBackground
@@ -34,14 +55,14 @@ export default function CustomerService({ navigation }){
                 />
                 <Text>Video call</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => openPhoneApp(phoneNumber)}>
                 <Image
                   style={{ height: 60, width: 60, marginEnd: 30 }}
                   source={require('../images/call.png')}
                 />
                 <Text>Voice call</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => openMailApp(mail)}>
                 <Image
                   style={{ height: 60, width: 60, marginEnd: 10 }}
                   source={require('../images/chat.png')}

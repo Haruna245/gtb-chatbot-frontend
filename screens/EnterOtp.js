@@ -40,28 +40,28 @@ export default function SettingsScreen({ navigation }) {
             <TextInput
                 style={styles.otpbtn}
                 onChangeText={onChangeText2}
-                value={text}
+                value={text2}
                 keyboardType="numeric"
                 placeholder=""
             />
             <TextInput
                 style={styles.otpbtn}
                 onChangeText={onChangeText3}
-                value={text}
+                value={text3}
                 keyboardType="numeric"
                 placeholder=""
             />
             <TextInput
                 style={styles.otpbtn}
                 onChangeText={onChangeText4}
-                value={text}
+                value={text4}
                 keyboardType="numeric"
                 placeholder=""
             />
             <TextInput
                 style={styles.otpbtn}
                 onChangeText={onChangeText5}
-                value={text}
+                value={text5}
                 keyboardType="numeric"
                 placeholder=""
                 
@@ -69,7 +69,7 @@ export default function SettingsScreen({ navigation }) {
             <TextInput
                 style={styles.otpbtn}
                 onChangeText={onChangeText6}
-                value={text}
+                value={text6}
                 keyboardType="numeric"
                 placeholder=""
             />

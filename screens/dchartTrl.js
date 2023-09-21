@@ -91,7 +91,7 @@ const ChatScreen2 = ({ navigation }) => {
     };
   
     const sendMessageToServer = async (message) => {
-      const response = await axios.post('http://127.0.0.1:8000/chat', { body: message });
+      const response = await axios.post('https://ijofhhh418.loclx.io/chat', { body: message });
       return response.data; // Assuming the server responds with the message
     };
   
@@ -174,7 +174,7 @@ const ChatScreen2 = ({ navigation }) => {
         <View style={styles.container}>
         <View style={{flexDirection:'row',}}>
 
-          <View style={{marginTop:20,width:'100%' }}>
+          <View style={{marginTop:30,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>
@@ -192,7 +192,20 @@ const ChatScreen2 = ({ navigation }) => {
           </TouchableOpacity>
 
           <View style={styles.chatContainer}>
-          <View style={{borderBottomColor:'grey',borderBottomWidth:1}} /> 
+          <View style={{borderBottomColor:'grey',borderBottomWidth:1}} />
+          <View style={{alignItems:'flex-Start'}}>
+          <View style={{backgroundColor:'white',maxWidth: '80%',
+      marginVertical: 8,
+      padding: 10,
+      borderRadius: 8,
+      //borderWidth: 1,
+      borderColor: '#E0E0E0',}}>
+            <Text>Hello, Welcome to your customer Service Chatbot.
+              How may i help you today?
+            </Text>
+          </View>
+          </View>
+          
           <ScrollView
           style={styles.chatContainer}
           contentContainerStyle={styles.chatContentContainer}
@@ -234,10 +247,13 @@ const ChatScreen2 = ({ navigation }) => {
           <View style={{ flexDirection: 'row',margin:10 }}>
             <View style={styles.inputContainer}>
               <TextInput
+              editable
+              multiline
                 style={styles.textInput}
                 placeholder="Type your message"
                 value={message}
                 onChangeText={(text) => setMessage(text)}
+                textAlignVertical="center"
               />
               <TouchableOpacity onPress={() => navigation.navigate('VoiceRec')} style={styles.iconContainer}>
                 <Animated.View
@@ -302,6 +318,7 @@ const styles = StyleSheet.create({
     textInput: {
       flex: 1,
       marginRight: 10,
+      padding:20,
       paddingLeft: 20,
       //backgroundColor: '#F0F0F0',
       backgroundColor: '#FD8936',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, Button,TouchableOpacity,Image,ImageBackground } from 'react-native';
+import { Text, View, StyleSheet, Button,TouchableOpacity,Image,ImageBackground,ActivityIndicator,Modal } from 'react-native';
 import { Audio } from 'expo-av';
 import { AntDesign } from '@expo/vector-icons';
 import axios from 'axios';
@@ -8,7 +8,9 @@ export default function AudioRecorder({ navigation }) {
   const [sound, setSound] = React.useState();
   const [recording, setRecording] = React.useState();
   const [recSound, setRecSound] = React.useState();
-  const [genText, setgenText] = React.useState('');
+  const [genText, setgenText] = React.useState('Testing');
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [modalVisible, setModalVisible] = React.useState(false);
 
   async function startRecording() {
     try {
@@ -64,26 +66,18 @@ export default function AudioRecorder({ navigation }) {
 
   //Api call
   const sendMessageToServer = async (recSound) => {
-    /* const response = await axios.get('https://c7de-154-160-18-101.ngrok-free.app/files/', { },
-    {
-      headers: {
-        'accept': 'application/json',
-        'Content-Type': 'multipart/form-data',
-      },
-    } ).then(res => {
-      console.log(res);
-      console.log(res.data)
-  })
-  .catch(error => console.log(error)); */
-   // console.log(response);
-    //return response.data; 
+    setModalVisible(true);
+    setIsLoading(true);
     if (recSound) {
-      const apiUrl ='http://127.0.0.1:8000/files/';
+      const apiUrl ='https://79a9-154-160-18-189.ngrok-free.app/uploadfile/';
 
       const formData = new FormData();
       formData.append('file', {
         uri: recSound,
-        name: "sound.wav",
+        //name: "sound",
+        //type: 'multipart/form-data',
+        name: "sound.m4a",
+        type: "audio/m4a",
         //type: "image/jpg" 
       });
 
@@ -98,8 +92,16 @@ export default function AudioRecorder({ navigation }) {
         
         console.log(response.data)
         
+        setgenText(response.data)
+        
+        
+        
       } catch (error) {
         console.error(error);
+      }
+      finally {
+        setIsLoading(false); // Set loading back to false after the API call completes
+        setModalVisible(false);
       }
     } 
     // Assuming the server responds with the message
@@ -116,8 +118,8 @@ export default function AudioRecorder({ navigation }) {
       const formData = new FormData();
       formData.append('data', {
         uri: recSound,
-        name: "sound.wav",
-        //type: "image/jpg" 
+        name: "sound.m4a",
+        type: "audio/m4a" 
       });
 
       try {
@@ -184,6 +186,10 @@ export default function AudioRecorder({ navigation }) {
         
         <TouchableOpacity style={styles.ctrlBtn} onPress={()=>sendMessageToServer(recSound)} ><Text>Generate Text</Text></TouchableOpacity></>
       )}
+      {/* {isLoading && (
+          <ActivityIndicator size="small" color="#FD8936" />
+        )} */}
+      
       </View>
         
       
@@ -191,9 +197,28 @@ export default function AudioRecorder({ navigation }) {
       <View style={{marginStart:10}}>
       <Text>Generated Text</Text>
       </View>
-      <View style={{backgroundColor:'white',width:'80%',height:70,margin:10,borderRadius:10,padding:10}}>
-      <Text>{genText}</Text>
+      <View style={{backgroundColor:'white',width:'90%',height:70,margin:10,marginBottom:5,borderRadius:10,padding:10}}>
+      <Text>{genText} </Text>
       </View>
+      <View>
+      <TouchableOpacity style={{backgroundColor:'#FD8936',margin:10,height:50,borderRadius:10,alignItems:'center',justifyContent:'center'}} 
+      onPress={() => navigation.navigate('VoiceMsg',{message:genText})}>
+        <Text style={{color:'white'}}>Send Text</Text>
+        </TouchableOpacity>
+      </View>
+      <Modal
+        transparent={true}
+        animationType="fade"
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <ActivityIndicator size="large" color="#FD8936" />
+            <Text>Generating Text...</Text>
+          </View>
+        </View>
+      </Modal>
       </ImageBackground>
     </View>
   );
@@ -229,5 +254,16 @@ const styles = StyleSheet.create({
     borderRadius:10,
     //marginBottom:5,
     //marginStart:5
+  },
+  modalContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+  },
+  modalContent: {
+    backgroundColor: 'white',
+    padding: 20,
+    borderRadius: 10,
   },
 });

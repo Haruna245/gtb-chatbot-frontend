@@ -1,9 +1,10 @@
-import React from 'react';
-import { View, ImageBackground, Button, StyleSheet,TouchableOpacity,Text,TextInput } from 'react-native';
+import React, { useState,useRef,useEffect  } from 'react';
+import { View, ImageBackground, Button, StyleSheet,TouchableOpacity,Text,TextInput,ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
 function FeedbackScreen({ navigation }) {
   const [text, onChangeText] = React.useState('');
+  const scrollViewRef = useRef();
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -21,6 +22,19 @@ function FeedbackScreen({ navigation }) {
           </View>
           <View style={{borderBottomColor:'grey',borderBottomWidth:1,marginBottom:5}} />
         <View style={styles.centeredView}>
+        <ScrollView
+          style={styles.chatContainer}
+          contentContainerStyle={styles.chatContentContainer}
+          ref= {scrollViewRef} /* {(scrollView) => {
+            this.scrollView = scrollView; // Create a reference to the ScrollView
+          }} */
+          onContentSizeChange={() => {
+            // Scroll to the bottom whenever content size changes (new messages are added)
+            //this.scrollView.scrollToEnd({ animated: true });
+            scrollViewRef.current.scrollToEnd({ animated: true });
+          }}
+          showsVerticalScrollIndicator={false}
+        > 
           <View style={{marginTop:30,margin:10}}>
             <View>
 
@@ -113,7 +127,7 @@ Privacy Policy.
               </TouchableOpacity>
             </View>
           </View>
-          
+          </ScrollView>
           {/* <Button
             title="Go to Profile"
             onPress={() => navigation.navigate('Profile')}

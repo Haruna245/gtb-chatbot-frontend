@@ -20,6 +20,7 @@ import FeedbackScreen from './screens/feedback';
 import FAQpage from './screens/FAQPage';
 import Location from './screens/Location';
 import FAQanswer from './screens/FAQanswer';
+import VoiceMsg from './screens/VoiceMsg';
 /* function ChatScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -48,6 +49,7 @@ function MyStack() {
       <Stack.Screen name="chatWelcome" component={ChatWelcome} />
       <Stack.Screen name="ChatScreen2" component={ChatScreen2} />
       <Stack.Screen name="VoiceRec" component={AudioRecorder} />
+      <Stack.Screen name="VoiceMsg" component={VoiceMsg} />
       <Stack.Screen name="Satisfy" component={Satisfy} />
       <Stack.Screen name="SatisfyYes" component={SatisfyYes} />
       <Stack.Screen name="SatisfyNo" component={SatisfyNo} />
