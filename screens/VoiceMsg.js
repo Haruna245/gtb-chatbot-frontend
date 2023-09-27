@@ -13,7 +13,7 @@ function VoiceMsg({ navigation }) {
     
     useEffect(() => {
       // Define the URL of your backend API endpoint
-      const backendUrl = 'https://79a9-154-160-18-189.ngrok-free.app/chat'; // Replace with your actual backend URL
+      const backendUrl = 'https://627d-154-160-22-32.ngrok-free.app/chat'; // Replace with your actual backend URL
   
       // Define the message to send to the backend
       const messageToSend = route.params.message;

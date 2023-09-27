@@ -69,7 +69,7 @@ export default function AudioRecorder({ navigation }) {
     setModalVisible(true);
     setIsLoading(true);
     if (recSound) {
-      const apiUrl ='https://79a9-154-160-18-189.ngrok-free.app/uploadfile/';
+      const apiUrl ='https://627d-154-160-22-32.ngrok-free.app/uploadfile/';
 
       const formData = new FormData();
       formData.append('file', {
