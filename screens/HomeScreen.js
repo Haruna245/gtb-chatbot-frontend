@@ -12,7 +12,7 @@ import { createStackNavigator } from '@react-navigation/stack';
     return (
       <View style={{ flex: 1 }}>
         <ImageBackground
-          source={require('../assets/splash1.png')}
+          source={require('../images/imgbg2.png')}
           resizeMode="cover"
           style={styles.imageBackground}
         >
@@ -22,9 +22,9 @@ import { createStackNavigator } from '@react-navigation/stack';
             source={require('../images/gtblogo.png')}
           />
           
-          <Text style={{ color: '#FF7A00', }}>GTBank</Text>
-          <Text style={{ color: '#FF7A00', }}>Customer Service</Text>
-          <Text style={{ color: '#FF7A00', }}>Chatbot</Text>
+          <Text style={{ color: '#FF7A00',fontSize:22 ,marginTop:20}}>GTBank</Text>
+          <Text style={{ color: '#FF7A00',fontSize:25  }}>Customer Service</Text>
+          <Text style={{ color: '#FF7A00',fontSize:22  }}>Chatbot</Text>
           
           <View style={{ width: '100%',marginTop:50 }}> 
 
@@ -32,13 +32,13 @@ import { createStackNavigator } from '@react-navigation/stack';
             style={styles.input}
             onChangeText={onChangeText}
             value={accountID}
-            placeholder="account number"
+            placeholder="E-mail"
           />
           <TextInput
             style={styles.input}
             onChangeText={onPassword}
             value={password}
-            placeholder="password"
+            placeholder="Password"
             secureTextEntry
           />
           </View>
@@ -57,22 +57,25 @@ import { createStackNavigator } from '@react-navigation/stack';
 
             <View style={{width:'100%',marginStart:70}}>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-              <Text style={styles.forgetPasswordText}>forgetPassword</Text>
+              <Text style={styles.forgetPasswordText}>Forget Password?</Text>
          
               </TouchableOpacity>
              </View>
              <View style={{flex:1,alignItems:'center',justifyContent:'flex-end',marginBottom:10}}>
 
-          <View style={{flexDirection:'row'}}>
+          <View style={{flexDirection:'row',marginBottom:20,}}>
             <TouchableOpacity onPress={() => navigation.navigate('Location')}>
-            <Text style={{color: '#FF7A00',}}>Location </Text>
+            <Text style={{color: 'black',fontSize:18}}>Location </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('FAQpage')}>
-            <Text style={{color: '#FF7A00',}}>| FAQs </Text>
+            <Text style={{color: 'black',fontSize:18,marginStart:20}}>| FAQs </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('FeedbackScreen')}>
-              <Text style={{color: '#FF7A00',}}>| FEEDBACK</Text>
+              <Text style={{color: 'black',fontSize:18,marginStart:20}}>| Feedback</Text>
             </TouchableOpacity>
+            </View>
+            <View>
+              <Text style={{marginBottom:20}}>COPYRIGHT 2023 GTBank,N.A. All Rights Reserved</Text>
             </View>
              </View>
           </View>
@@ -98,12 +101,11 @@ import { createStackNavigator } from '@react-navigation/stack';
     },
     tinyLogo: {
       /* marginBottom:50, */
-      width: 60,
-      height: 60,
+      width: 80,
+      height: 80,
       display:'flex',
       justifyContent: 'center',
-      
-    },
+      marginTop:70    },
     input: {
       height: 50,
       margin: 12,
@@ -112,29 +114,30 @@ import { createStackNavigator } from '@react-navigation/stack';
       padding: 10,
       width: '90%',
       backgroundColor:'#FFFFFF',
-      borderRadius:5
+      borderRadius:25,
     },
     button: {
       alignItems: 'center',
-      backgroundColor: 'orange',
+      backgroundColor: '#d15921',
       padding: 10,
       width:'80%',
       margin:40,
       height:50,
-      borderRadius:10,
-      marginBottom:5
+      borderRadius:30,
+      marginBottom:5,
+      marginTop:35
     },
     buttonText: {
       textAlign: 'center', // Center the text horizontally
       justifyContent: 'center', // Center the text vertically
       color: 'white', // Text color
       fontWeight: 'bold', // Text style
-      marginTop:5,
+      marginTop:8,
     },
     forgetPasswordText: {
       //textAlign: 'center', // Center the text horizontally
-      color: '#FF7A00', // Text color
-      textDecorationLine: 'underline', // Underline the text
+      color: '#FF7A00',marginTop:15,marginStart:10 // Text color
+      //textDecorationLine: 'underline', // Underline the text
       //marginTop: 10, // Add margin to separate it from the button
     },
   });

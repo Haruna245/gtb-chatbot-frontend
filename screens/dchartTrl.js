@@ -91,7 +91,7 @@ const ChatScreen2 = ({ navigation }) => {
     };
   
     const sendMessageToServer = async (message) => {
-      const response = await axios.post('https://ijofhhh418.loclx.io/chat', { body: message });
+      const response = await axios.post('https://a436-154-160-5-95.ngrok-free.app/chat', { body: message });
       return response.data; // Assuming the server responds with the message
     };
   
@@ -174,21 +174,21 @@ const ChatScreen2 = ({ navigation }) => {
         <View style={styles.container}>
         <View style={{flexDirection:'row',}}>
 
-          <View style={{marginTop:30,width:'100%' }}>
+          <View style={{marginTop:50,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>
           </View>
           </View>
           
-          <View style={{position:'absolute',left:'45%',top:30 }}>
+          <View style={{position:'absolute',left:'45%',top:45 }}>
           <Image
           style={styles.tinyLogo}
           source={require('../images/tapChat.png')}
           />
           </View>
-          <TouchableOpacity style={{position:'absolute',right:'10%',top:50 }} onPress={() => navigation.navigate('Satisfy')}>
-            <Text>Satisfy?</Text>
+          <TouchableOpacity style={{position:'absolute',right:'10%',top:60 }} onPress={() => navigation.navigate('Satisfy')}>
+            <Text>Satisfied?</Text>
           </TouchableOpacity>
 
           <View style={styles.chatContainer}>
@@ -244,13 +244,13 @@ const ChatScreen2 = ({ navigation }) => {
           </Animated.View>
           </ScrollView>
           </View>
-          <View style={{ flexDirection: 'row',margin:10 }}>
+          <View style={{ flexDirection: 'row',margin:10 ,marginBottom:35,}}>
             <View style={styles.inputContainer}>
               <TextInput
               editable
               multiline
                 style={styles.textInput}
-                placeholder="Type your message"
+                placeholder="Type your message...."
                 value={message}
                 onChangeText={(text) => setMessage(text)}
                 textAlignVertical="center"
@@ -314,6 +314,7 @@ const styles = StyleSheet.create({
       borderRadius: 30,
       width:'80%',
       padding: 5,
+      //marginBottom:30,
     },
     textInput: {
       flex: 1,
@@ -326,7 +327,9 @@ const styles = StyleSheet.create({
       //outline:'none',
       borderRadius: 20,
       width:220,
-      height:60
+      height:60,
+      paddingTop:23,
+      fontWeight:'bold'
     },
     sendButton: {
       padding: 10,

@@ -9,12 +9,12 @@ export default function SatisfyYes({ navigation }){
     return (
         <View style={{ flex: 1 }}>
           <ImageBackground
-            source={require('../assets/splash1.png')}
+            source={require('../images/imgbg2.png')}
             resizeMode="cover"
             style={styles.imageBackground}
           >
             <View style={styles.centeredView}>
-            <View style={{marginTop:30,margin:10,width:'100%' }}>
+            <View style={{marginTop:60,margin:10,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <Text>Back</Text>
           </TouchableOpacity>
@@ -25,10 +25,10 @@ export default function SatisfyYes({ navigation }){
           </Text>
             <View style={{flexDirection:'row',margin:20}}>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('ChatScreen2')}>
-                    <Text>Yes</Text>
+                    <Text style={{fontSize:17,color:"white"}}>Yes</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('chatWelcome')}>
-                    <Text>No</Text>
+                    <Text style={{fontSize:17,color:"white"}}>No</Text>
                 </TouchableOpacity>
             </View>
           </View>

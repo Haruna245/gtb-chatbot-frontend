@@ -12,12 +12,12 @@ export default function ProfileScreen({ navigation }) {
     return (
       <View style={{ flex: 1 }}>
       <ImageBackground
-        source={require('../assets/splash1.png')}
+        source={require('../images/imgbg2.png')}
         resizeMode="cover"
         style={styles.imageBackground}
       >
         <View style={styles.centeredView}>
-          <View style={{marginStart:5}}>
+          <View style={{marginStart:8,marginTop:55}}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>
@@ -29,7 +29,7 @@ export default function ProfileScreen({ navigation }) {
           <TextInput
             style={{marginStart:20,width: '20%',backgroundColor:'#FFFFFF',
           
-                    height: 50,borderRadius:5,padding:10,borderWidth: 1,borderColor:'orange'}}
+                    height: 50,borderRadius:5,padding:10,borderWidth: 1,borderColor:'#d15921'}}
             onChangeText={onChangeText}
             value={text}
             placeholder="+233"
@@ -37,7 +37,7 @@ export default function ProfileScreen({ navigation }) {
           <TextInput
             style={{marginStart:5,width: '70%',backgroundColor:'#FFFFFF',
           
-                    height: 50,borderRadius:5,padding:5,borderWidth: 1,borderColor:'orange'}}
+                    height: 50,borderRadius:5,padding:5,borderWidth: 1,borderColor:'#d15921'}}
             onChangeText={onChangeText}
             value={text}
             placeholder="phone number"
@@ -58,11 +58,11 @@ export default function ProfileScreen({ navigation }) {
           />
           </View>
           <View>
-            <TouchableOpacity style={{backgroundColor: '#FD8936',alignItems: 'center',height:50,borderRadius:10,
+            <TouchableOpacity style={{backgroundColor: '#d15921',alignItems: 'center',height:50,borderRadius:10,
                                       margin:20,padding: 10,marginTop:30}}
                                       onPress={() => navigation.navigate('Notifications')}
                                       >
-              <Text style={{marginTop:5,color:'white',fontWeight: 'bold'}} >Continue</Text>
+              <Text style={{marginTop:5,color:'white',fontWeight: 'bold',marginTop:8}} >Continue</Text>
             </TouchableOpacity>
           </View>
           <View style={{marginStart:20,marginEnd:20}}>
@@ -113,7 +113,7 @@ export default function ProfileScreen({ navigation }) {
       width: '90%',
       backgroundColor:'#FFFFFF',
       borderRadius:5,
-      borderColor:'orange'
+      borderColor:'#d15921'
     },
   });
   

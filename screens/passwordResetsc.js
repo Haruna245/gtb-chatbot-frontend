@@ -15,7 +15,7 @@ export default function PasswordReset({ navigation }) {
         resizeMode="cover"
         style={styles.imageBackground}
       >
-        <View style={{margin:10}}>
+        <View style={{margin:10,marginTop:40}}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
             <Text>Back</Text>
           </TouchableOpacity>
@@ -42,7 +42,7 @@ export default function PasswordReset({ navigation }) {
                 </Text>
             </View>
             <View>
-            <TouchableOpacity style={{backgroundColor:'orange',height:50,margin:20,alignItems: 'center',
+            <TouchableOpacity style={{backgroundColor:'#d15921',height:50,margin:20,alignItems: 'center',
               justifyContent:'center',borderRadius:10 
             }}
             onPress={() => navigation.navigate('chatWelcome')}

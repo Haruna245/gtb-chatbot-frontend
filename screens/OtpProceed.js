@@ -11,19 +11,16 @@ export default function NotificationsScreen({ navigation }) {
     return (
         <View style={{ flex: 1 }}>
       <ImageBackground
-        source={require('../assets/splash1.png')}
+        source={require('../images/imgbg2.png')}
         resizeMode="cover"
         style={styles.imageBackground}
       >
         <View style={styles.centeredView}>
-        <View style={{marginStart:5}}>
-          <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-            <Text>Back</Text>
-          </TouchableOpacity>
+        <View style={{marginStart:10,marginTop:50}}>
           </View>
           <View style={{margin:20,alignItems:'center'}}>
-            <Text style={{textAlign: 'center',justifyContent: 'center',fontWeight: 'light',fontSize:17}}>To recover your User ID and reset your password ,enter your info below.</Text>
-            <Text style={{textAlign: 'center',justifyContent: 'center',fontWeight: 'bold',fontSize:17}}>Code Sent</Text>
+      
+            <Text style={{textAlign: 'center',justifyContent: 'center',fontWeight: 'bold',fontSize:27}}>Code Sent</Text>
          
           </View>
           {/* <Button
@@ -32,7 +29,7 @@ export default function NotificationsScreen({ navigation }) {
           /> */}
           <View style={{position: 'absolute',bottom:100,left:40,right:20}}>
             <Text style={{margin:20,fontWeight:'bold',fontSize:17}}>Check in your inbox for a code to reset you password.</Text>
-          <TouchableOpacity style={{backgroundColor: '#FD8936',alignItems: 'center',height:50,borderRadius:10,
+          <TouchableOpacity style={{backgroundColor: '#d15921',alignItems: 'center',height:50,borderRadius:10,
                                       padding: 10,}}
                                       onPress={() => navigation.navigate('Settings')}
                                       >

@@ -9,12 +9,12 @@ export default function Satisfy({ navigation }){
     return (
         <View style={{ flex: 1 }}>
           <ImageBackground
-            source={require('../assets/splash1.png')}
+            source={require('../images/imgbg2.png')}
             resizeMode="cover"
             style={styles.imageBackground}
           >
             <View style={styles.centeredView}>
-            <View style={{marginTop:30,margin:10,width:'100%' }}>
+            <View style={{marginTop:60,margin:10,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <Text>Back</Text>
           </TouchableOpacity>
@@ -22,13 +22,14 @@ export default function Satisfy({ navigation }){
           <View style={{alignItems:'center',margin:10}}>
           <Text style={{alignItems:'center',fontSize:20,padding:10}}>
           Did I answer all you questions like you wanted?
+        
           </Text>
             <View style={{flexDirection:'row',margin:20}}>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('SatisfyYes')}>
-                    <Text>Yes</Text>
+                    <Text style={{fontSize:17,color:"white"}}>Yes</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('SatisfyNo')}>
-                    <Text>No</Text>
+                    <Text style={{fontSize:17,color:"white"}}>No</Text>
                 </TouchableOpacity>
             </View>
           </View>
@@ -65,12 +66,14 @@ button: {
   },
   button1: {
     alignItems: 'center',
-    backgroundColor: '#FF7A00',
+    backgroundColor: '#d15921',
     padding: 10,
-    width:80,
+    width:90,
     height:40,
     borderRadius:10,
     marginBottom:5,
     marginStart:10
   },
 });
+
+ // Was I of very good help or you wish to be connected to a real customer service?

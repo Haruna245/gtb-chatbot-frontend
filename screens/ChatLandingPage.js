@@ -16,7 +16,7 @@ export default function ChatWelcome({ navigation }) {
         <View style={styles.centeredView}>
         <View style={{marginStart:5}}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-          <AntDesign name="left" size={24} color="black" />
+          <AntDesign name="left" size={24} color="white" />
           </TouchableOpacity>
           </View>
           <View style={{flexDirection:'row',justifyContent: 'center',marginTop:30 }}>
@@ -34,7 +34,7 @@ export default function ChatWelcome({ navigation }) {
 
           </View>
           <View style={{alignItems: 'center',margin:20,marginStart:50,marginEnd:50}}>
-            <Text style={{fontSize:17}}>My name is GT Adeola and i am here to answer all your questions .tap the icon to continue </Text>
+            <Text style={{fontSize:18}}>Hi name is GT Esi,How may i be of your service?</Text>
           </View>
           <View style={{with:'100%',alignItems:'center',marginTop:10}}>
           <TouchableOpacity onPress={() => navigation.navigate('ChatScreen2')}>
@@ -42,7 +42,7 @@ export default function ChatWelcome({ navigation }) {
             style={styles.tinyLogo}
             source={require('../images/tapChat.png')}
           />
-          <Text style={{fontSize:17}}>Tap here to Chat</Text>
+          <Text style={{fontSize:19}}>Tap here to Chat</Text>
           </TouchableOpacity>
           
           </View>

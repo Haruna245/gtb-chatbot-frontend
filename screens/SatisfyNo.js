@@ -9,26 +9,26 @@ export default function SatisfyNo({ navigation }){
     return (
         <View style={{ flex: 1 }}>
           <ImageBackground
-            source={require('../assets/splash1.png')}
+            source={require('../images/imgbg2.png')}
             resizeMode="cover"
             style={styles.imageBackground}
           >
             <View style={styles.centeredView}>
-            <View style={{marginTop:30,margin:10,width:'100%' }}>
+            <View style={{marginTop:60,margin:10,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <Text>Back</Text>
           </TouchableOpacity>
           </View>
-          <View style={{alignItems:'center',margin:10}}>
-          <Text style={{alignItems:'center',fontSize:20,padding:5}}>
-          This is beyond my knowledge so if thats the case i am going to connect you to a real customer service provider who can further assist you with your questions.Do you wish to continue?
+          <View style={{alignItems:'center',margin:10,alignItems:"center"}}>
+          <Text style={{alignItems:'center',fontSize:22,padding:5,}}>
+          This is beyond my knowledge so i am going to connect you to a real customer service provider who can further assist you with your questions.Do you wish to continue?
           </Text>
             <View style={{flexDirection:'row',margin:20}}>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('CustomerService')}>
-                    <Text>Yes</Text>
+                    <Text style={{fontSize:17,color:"white"}}>Yes</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('chatWelcome')}>
-                    <Text>No</Text>
+                    <Text style={{fontSize:17,color:"white"}}>No</Text>
                 </TouchableOpacity>
             </View>
           </View>
@@ -61,11 +61,11 @@ button: {
     width:60,
     height:40,
     borderRadius:10,
-    marginBottom:5
+    marginBottom:5,
   },
   button1: {
     alignItems: 'center',
-    backgroundColor: '#FF7A00',
+    backgroundColor: '#d15921',
     padding: 10,
     width:80,
     height:40,
