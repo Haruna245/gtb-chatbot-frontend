@@ -1,6 +1,6 @@
 import React, { useState,useRef,useEffect  } from 'react';
 import { View, Text, StyleSheet, ImageBackground, TextInput, TouchableOpacity, Image,Animated, Easing, 
-Alert,ScrollView } from 'react-native';
+Alert,ScrollView,KeyboardAvoidingView,Platform  } from 'react-native';
 import axios from 'axios';
 import { Audio } from 'expo-av';
 import { Feather,AntDesign } from '@expo/vector-icons';
@@ -193,18 +193,7 @@ const ChatScreen2 = ({ navigation }) => {
 
           <View style={styles.chatContainer}>
           <View style={{borderBottomColor:'grey',borderBottomWidth:1}} />
-          <View style={{alignItems:'flex-Start'}}>
-          <View style={{backgroundColor:'white',maxWidth: '80%',
-      marginVertical: 8,
-      padding: 10,
-      borderRadius: 8,
-      //borderWidth: 1,
-      borderColor: '#E0E0E0',}}>
-            <Text>Hello, Welcome to your customer Service Chatbot.
-              How may i help you today?
-            </Text>
-          </View>
-          </View>
+          
           
           <ScrollView
           style={styles.chatContainer}
@@ -219,6 +208,18 @@ const ChatScreen2 = ({ navigation }) => {
           }}
           showsVerticalScrollIndicator={false}
         >
+          <View style={{alignItems:'flex-Start'}}>
+          <View style={{backgroundColor:'white',maxWidth: '80%',
+      marginVertical: 8,
+      padding: 10,
+      borderRadius: 8,
+      //borderWidth: 1,
+      borderColor: '#E0E0E0',}}>
+            <Text>Hello, Welcome to your customer Service Chatbot.
+              How may i help you today?
+            </Text>
+          </View>
+          </View>
             {chatData.map((item) => (
               <View
                 key={item.id}
@@ -244,7 +245,10 @@ const ChatScreen2 = ({ navigation }) => {
           </Animated.View>
           </ScrollView>
           </View>
-          <View style={{ flexDirection: 'row',margin:10 ,marginBottom:35,}}>
+          <KeyboardAvoidingView style={{  }}
+              behavior={Platform.OS === 'ios' ? 'padding' : null}
+              keyboardVerticalOffset={Platform.OS === 'ios' ? 64 : 0}>
+          <View style={{ flexDirection: 'row',margin:10,marginBottom:35, }}>
             <View style={styles.inputContainer}>
               <TextInput
               editable
@@ -270,20 +274,22 @@ const ChatScreen2 = ({ navigation }) => {
               </TouchableOpacity>
             </View>
             <TouchableOpacity onPress={addMessage} style={styles.sendButton}>
-              {/* <Text style={styles.sendButtonText}>Send</Text> */}
-              {/* <Image
-                  style={{ height: 20, width: 20,  }}
-                  source={require('../images/send-fill.svg')}
-                /> */}
+             
                 <Feather name="send" size={25} color="black" />
             </TouchableOpacity>
+           
           </View>
+          </KeyboardAvoidingView>
         </View>
       </ImageBackground>
     );
   };
   
-
+ {/* <Text style={styles.sendButtonText}>Send</Text> */}
+              {/* <Image
+                  style={{ height: 20, width: 20,  }}
+                  source={require('../images/send-fill.svg')}
+                /> */}
 const styles = StyleSheet.create({
     backgroundImage: {
       flex: 1,

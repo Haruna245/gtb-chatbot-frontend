@@ -9,6 +9,10 @@ import { AntDesign } from '@expo/vector-icons';
 
 export default function ProfileScreen({ navigation }) {
   const [text, onChangeText] = React.useState('');
+  const [number, onChangenumber] = React.useState('');
+  const [accnumber, onChangeaccnumber] = React.useState('');
+  const [date, onChangedate] = React.useState('');
+  
     return (
       <View style={{ flex: 1 }}>
       <ImageBackground
@@ -35,25 +39,23 @@ export default function ProfileScreen({ navigation }) {
             placeholder="+233"
           />
           <TextInput
-            style={{marginStart:5,width: '70%',backgroundColor:'#FFFFFF',
-          
-                    height: 50,borderRadius:5,padding:5,borderWidth: 1,borderColor:'#d15921'}}
-            onChangeText={onChangeText}
-            value={text}
+            style={{marginStart:5,width: '70%',backgroundColor:'#FFFFFF', height: 50,borderRadius:5,padding:5,borderWidth: 1,borderColor:'orange'}}
+            onChangeText={onChangenumber}
+            value={number}
             placeholder="phone number"
           />
           </View>
           <View>
             <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
+            onChangeText={onChangeaccnumber}
+            value={accnumber}
             placeholder="account number"
           />
           <TextInput
             style={styles.input}
-            onChangeText={onChangeText}
-            value={text}
+            onChangeText={onChangedate}
+            value={date}
             placeholder="DD/MM/YYYY"
           />
           </View>

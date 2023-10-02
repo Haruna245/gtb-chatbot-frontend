@@ -3,7 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Button,ImageBackground,TouchableOpacity,TextInput,Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { Feather,AntDesign } from '@expo/vector-icons';
 
 export default function SatisfyYes({ navigation }){
     return (
@@ -14,13 +14,13 @@ export default function SatisfyYes({ navigation }){
             style={styles.imageBackground}
           >
             <View style={styles.centeredView}>
-            <View style={{marginTop:60,margin:10,width:'100%' }}>
+            <View style={{margin:10,marginTop:30,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-          <Text>Back</Text>
+          <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>
           </View>
           <View style={{alignItems:'center',margin:10}}>
-          <Text style={{alignItems:'center',fontSize:20,padding:10}}>
+          <Text style={{fontSize: 20, padding: 5, textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
           I am glad i could help you ,Do you wish to ask any further questions?
           </Text>
             <View style={{flexDirection:'row',margin:20}}>
@@ -56,12 +56,12 @@ alignItems: 'center', */
 },
 button: {
     alignItems: 'center',
-    backgroundColor: '#FEFEFE',
-    padding: 10,
+    //backgroundColor: '#FEFEFE',
+    //padding: 10,
     width:60,
     height:40,
     borderRadius:10,
-    marginBottom:5
+    //marginBottom:5
   },
   button1: {
     alignItems: 'center',

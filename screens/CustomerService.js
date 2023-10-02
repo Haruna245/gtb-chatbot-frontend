@@ -3,6 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Button,ImageBackground,TouchableOpacity,TextInput,Image,Platform } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Feather,AntDesign } from '@expo/vector-icons';
+
 //import { Platform } from 'react-native';
 //import * as Linking from 'expo-linking';
 
@@ -35,13 +37,14 @@ export default function CustomerService({ navigation }){
             style={styles.imageBackground}
           >
             <View style={styles.centeredView}>
+
             <View style={{marginTop:60,margin:10,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-          <Text>Back</Text>
+          <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>
           </View>
-          <View style={{alignItems:'center',margin:10,justifyContent:"center"}}>
-          <Text style={{alignItems:'center',fontSize:23,}}>
+          <View style={{alignItems:'center',margin:10}}>
+          <Text style={{fontSize: 20, padding: 5, textAlign: 'center', alignItems: 'center', justifyContent: 'center',,fontSize:23}}>
           How would you like to communicate with our live agents?
           </Text>
             
@@ -95,12 +98,12 @@ alignItems: 'center', */
 },
 button: {
     alignItems: 'center',
-    backgroundColor: '#FEFEFE',
-    padding: 10,
+    //backgroundColor: '#FEFEFE',
+    //padding: 10,
     width:60,
     height:40,
-    borderRadius:10,
-    marginBottom:5
+    //borderRadius:10,
+    //marginBottom:5
   },
   button1: {
     alignItems: 'center',
