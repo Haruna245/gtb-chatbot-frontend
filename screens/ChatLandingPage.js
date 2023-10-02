@@ -16,7 +16,7 @@ export default function ChatWelcome({ navigation }) {
         <View style={styles.centeredView}>
         <View style={{marginStart:5}}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
-          <AntDesign name="left" size={24} color="white" />
+          <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>
           </View>
           <View style={{flexDirection:'row',justifyContent: 'center',marginTop:30 }}>
