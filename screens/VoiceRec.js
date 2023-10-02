@@ -8,7 +8,7 @@ export default function AudioRecorder({ navigation }) {
   const [sound, setSound] = React.useState();
   const [recording, setRecording] = React.useState();
   const [recSound, setRecSound] = React.useState();
-  const [genText, setgenText] = React.useState('Testing');
+  const [genText, setgenText] = React.useState('');
   const [isLoading, setIsLoading] = React.useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
 
@@ -69,7 +69,7 @@ export default function AudioRecorder({ navigation }) {
     setModalVisible(true);
     setIsLoading(true);
     if (recSound) {
-      const apiUrl ='https://627d-154-160-22-32.ngrok-free.app/uploadfile/';
+      const apiUrl ='https://a436-154-160-5-95.ngrok-free.app/uploadfile/';
 
       const formData = new FormData();
       formData.append('file', {
@@ -163,18 +163,18 @@ export default function AudioRecorder({ navigation }) {
       <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
 
       <TouchableOpacity onPress={recording ? stopRecording : startRecording} 
-      style={{backgroundColor:'#FD8936',borderRadius:50,alignItems:'center',height:100,width:100,justifyContent:'center',}}>
+      style={{backgroundColor:'#FD8936',borderRadius:150,alignItems:'center',height:300,width:300,justifyContent:'center',}}>
                 
                 <Image
-                  style={{ height: 50, width: 50 }}
+                  style={{ height: 200, width: 200 }}
                   source={require('../images/smallMic.png')}
                 />
                 
       </TouchableOpacity>
       {recording ? (
-        <Text>recording in progress....</Text>
+        <Text style={{fontSize:20}}>recording in progress....Please tap to stop recording</Text>
       ) : (
-        <Text>Tap to start recording</Text>
+        <Text  style={{fontSize:20}}>Tap to start recording</Text>
       )}
       
       <View style={{flexDirection:'row',margin:10,width:'100%',alignItems:'center',justifyContent:'center'}}>
@@ -197,11 +197,11 @@ export default function AudioRecorder({ navigation }) {
       <View style={{marginStart:10}}>
       <Text>Generated Text</Text>
       </View>
-      <View style={{backgroundColor:'white',width:'90%',height:70,margin:10,marginBottom:5,borderRadius:10,padding:10}}>
+      <View style={{backgroundColor:'white',width:'95%',height:70,margin:10,marginBottom:5,borderRadius:10,padding:10}}>
       <Text>{genText} </Text>
       </View>
       <View>
-      <TouchableOpacity style={{backgroundColor:'#FD8936',margin:10,height:50,borderRadius:10,alignItems:'center',justifyContent:'center'}} 
+      <TouchableOpacity style={{backgroundColor:'#FD8936',margin:10,height:50,borderRadius:10,alignItems:'center',justifyContent:'center',marginBottom:25}} 
       onPress={() => navigation.navigate('VoiceMsg',{message:genText})}>
         <Text style={{color:'white'}}>Send Text</Text>
         </TouchableOpacity>

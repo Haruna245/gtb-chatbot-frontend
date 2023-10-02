@@ -9,7 +9,7 @@ export default function SatisfyYes({ navigation }){
     return (
         <View style={{ flex: 1 }}>
           <ImageBackground
-            source={require('../assets/splash1.png')}
+            source={require('../images/imgbg2.png')}
             resizeMode="cover"
             style={styles.imageBackground}
           >
@@ -25,10 +25,10 @@ export default function SatisfyYes({ navigation }){
           </Text>
             <View style={{flexDirection:'row',margin:20}}>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('ChatScreen2')}>
-                    <Text>Yes</Text>
+                    <Text style={{fontSize:17,color:"white"}}>Yes</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('chatWelcome')}>
-                    <Text>No</Text>
+                    <Text style={{fontSize:17,color:"white"}}>No</Text>
                 </TouchableOpacity>
             </View>
           </View>

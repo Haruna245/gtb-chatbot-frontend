@@ -10,7 +10,7 @@ export default function Satisfy({ navigation }){
     return (
         <View style={{ flex: 1 }}>
           <ImageBackground
-            source={require('../assets/splash1.png')}
+            source={require('../images/imgbg2.png')}
             resizeMode="cover"
             style={styles.imageBackground}
           >
@@ -23,13 +23,14 @@ export default function Satisfy({ navigation }){
           <View style={{alignItems:'center',margin:10}}>
           <Text style={{fontSize: 20, padding: 5, textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
           Did I answer all you questions like you wanted?
+        
           </Text>
             <View style={{flexDirection:'row',margin:20}}>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('SatisfyYes')}>
-                    <Text>Yes</Text>
+                    <Text style={{fontSize:17,color:"white"}}>Yes</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate('SatisfyNo')}>
-                    <Text>No</Text>
+                    <Text style={{fontSize:17,color:"white"}}>No</Text>
                 </TouchableOpacity>
             </View>
           </View>
@@ -66,12 +67,14 @@ button: {
   },
   button1: {
     alignItems: 'center',
-    backgroundColor: '#FF7A00',
+    backgroundColor: '#d15921',
     padding: 10,
-    width:80,
+    width:90,
     height:40,
     borderRadius:10,
     marginBottom:5,
     marginStart:10
   },
 });
+
+ // Was I of very good help or you wish to be connected to a real customer service?

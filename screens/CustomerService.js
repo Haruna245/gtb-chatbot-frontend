@@ -14,7 +14,7 @@ if(Platform.OS !== 'web'){
 
 export default function CustomerService({ navigation }){
 
-  const phoneNumber = '1234567890';
+  const phoneNumber = '+233302611560';
   const mail = 'gtbank@gmail.com'
   const openPhoneApp = (phoneNumber) => {
     const telUrl = `tel:${phoneNumber}`;
@@ -32,18 +32,19 @@ export default function CustomerService({ navigation }){
     return (
         <View style={{ flex: 1 }}>
           <ImageBackground
-            source={require('../assets/splash1.png')}
+            source={require('../images/imgbg2.png')}
             resizeMode="cover"
             style={styles.imageBackground}
           >
             <View style={styles.centeredView}>
-            <View style={{margin:5,marginTop:30,width:'100%' }}>
+
+            <View style={{marginTop:60,margin:10,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>
           </View>
           <View style={{alignItems:'center',margin:10}}>
-          <Text style={{fontSize: 20, padding: 5, textAlign: 'center', alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={{fontSize: 20, padding: 5, textAlign: 'center', alignItems: 'center', justifyContent: 'center',,fontSize:23}}>
           How would you like to communicate with our live agents?
           </Text>
             
@@ -52,24 +53,24 @@ export default function CustomerService({ navigation }){
           <View style={{flexDirection:'row',margin:20,justifyContent:'center',alignItems:'center'}}>
                 <TouchableOpacity>
                 <Image
-                  style={{ height: 60, width: 60, marginEnd: 30 }}
+                  style={{ height: 60, width: 60, marginEnd: 55 }}
                   source={require('../images/video.png')}
                 />
-                <Text>Video call</Text>
+                <Text style={{fontWeight:"bold"}}>Video call</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => openPhoneApp(phoneNumber)}>
                 <Image
-                  style={{ height: 60, width: 60, marginEnd: 30 }}
+                  style={{ height: 60, width: 60, marginEnd: 60,}}
                   source={require('../images/call.png')}
                 />
-                <Text>Voice call</Text>
+                <Text style={{fontWeight:"bold"}}>Voice call</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => openMailApp(mail)}>
                 <Image
-                  style={{ height: 60, width: 60, marginEnd: 10 }}
+                  style={{ height: 60, width: 60, marginEnd:10 }}
                   source={require('../images/chat.png')}
                 />
-                <Text>live chat</Text>
+                <Text style={{fontWeight:"bold"}}> Live chat</Text>
                 </TouchableOpacity>
             </View>
           </View>

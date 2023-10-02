@@ -16,12 +16,12 @@ export default function SettingsScreen({ navigation }) {
     return (
         <View style={{ flex: 1 }}>
       <ImageBackground
-        source={require('../assets/splash1.png')}
+        source={require('../images/imgbg2.png')}
         resizeMode="cover"
         style={styles.imageBackground}
       >
         <View style={styles.centeredView}>
-        <View style={{marginStart:10}}>
+        <View style={{marginStart:15,marginTop:50}}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
             <Text>Back</Text>
           </TouchableOpacity>
@@ -75,7 +75,7 @@ export default function SettingsScreen({ navigation }) {
             />
              </View>
              <View style={{marginTop:50}}>
-              <TouchableOpacity style={{backgroundColor:'orange',height:50,margin:20,alignItems: 'center',
+              <TouchableOpacity style={{backgroundColor:'#d15921',height:50,margin:20,alignItems: 'center',
               justifyContent:'center',borderRadius:10 
             }}
             onPress={() => navigation.navigate('PasswordReset')}
