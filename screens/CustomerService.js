@@ -15,7 +15,8 @@ if(Platform.OS !== 'web'){
 export default function CustomerService({ navigation }){
 
   const phoneNumber = '+233302611560';
-  const mail = 'gtbank@gmail.com'
+  const mail = 'gtbank@gmail.com';
+  const link = 'https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2RiOGU0MDctNjU5NS00NWQ4LWE0OWEtYTZjZmZiZTExMzY1%40thread.v2/0?context=%7b%22Tid%22%3a%226b9fa61e-2360-4e38-a783-2d9af377f31b%22%2c%22Oid%22%3a%2275207c3b-a7da-4d03-9be5-6757c2e41976%22%7d'
   const openPhoneApp = (phoneNumber) => {
     const telUrl = `tel:${phoneNumber}`;
     
@@ -28,6 +29,13 @@ export default function CustomerService({ navigation }){
     
     Linking.openURL(telUrl)
       .catch((err) => console.error('Failed to open phone app:', err));
+  };
+
+  const openVideoApp = (link) => {
+    const video = link;
+    
+    Linking.openURL(video)
+      .catch((err) => console.error('Failed to open video app:', err));
   };
     return (
         <View style={{ flex: 1 }}>
@@ -51,7 +59,7 @@ export default function CustomerService({ navigation }){
           </View>
           <View style={{position:'absolute',bottom:'10%',left:50}}>
           <View style={{flexDirection:'row',margin:20,justifyContent:'center',alignItems:'center'}}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => openVideoApp(link)}>
                 <Image
                   style={{ height: 60, width: 60, marginEnd: 30 }}
                   source={require('../images/video.png')}

@@ -1,14 +1,50 @@
 import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Button,ImageBackground,Image,TextInput,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View,Button,KeyboardAvoidingView,ImageBackground,Image,TextInput,TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import axios from 'axios';
+import { setGlobalData } from './ApiData';
 //import  ProfileScreen  from '../screens/profile'
 
 
   function HomeScreen({ navigation }) {
     const [accountID, onChangeText] = React.useState('');
     const [password, onPassword] = React.useState('');
+    const [accfail, Setaccfail] = React.useState('');
+    const [accSuccess, SetaccSuccess] = React.useState([]);
+
+   const data = {
+      email: accountID, password:password
+    }
+
+    const sendMessageToServer = async (data) => {
+      const apiUrl ='https://33b0-154-160-6-177.ngrok-free.app/users/login';
+      try {
+        const response = await axios.post(apiUrl,data, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        
+        console.log(response.data)
+        setGlobalData(response.data);
+        if(response.status == 200){
+          console.log("authenticated")
+          //SetaccSuccess()
+          navigation.navigate('chatWelcome',{data:accSuccess})
+          Setaccfail('');
+          onChangeText('')
+          onPassword('')
+        }
+      
+        
+      } catch (error) {
+        Setaccfail('fail');
+        console.error(error);
+      }
+
+    }
     return (
       <View style={{ flex: 1 }}>
         <ImageBackground
@@ -22,12 +58,20 @@ import { createStackNavigator } from '@react-navigation/stack';
             source={require('../images/gtblogo.png')}
           />
           
-          <Text style={{ color: '#FF7A00',fontSize:22 ,marginTop:20}}>GTBank</Text>
-          <Text style={{ color: '#FF7A00',fontSize:25  }}>Customer Service</Text>
-          <Text style={{ color: '#FF7A00',fontSize:22  }}>Chatbot</Text>
+          <Text style={{ color: '#FF7A00',fontSize:20 ,marginTop:20}}>GTBank</Text>
+          <Text style={{ color: '#FF7A00',fontSize:23  }}>Customer Service</Text>
+          <Text style={{ color: '#FF7A00',fontSize:20  }}>Chatbot</Text>
           
-          <View style={{ width: '100%',marginTop:50 }}> 
+          
+          <View style={{ width: '100%' }}> 
+          <View>{accfail ? (
+        <Text style={{fontSize:12,color: 'red',marginStart:20}}>account not found</Text>
+      ) : (
+        <Text  style={{fontSize:20}}></Text>
+      )}</View>
 
+        
+          
           <TextInput
             style={styles.input}
             onChangeText={onChangeText}
@@ -42,6 +86,7 @@ import { createStackNavigator } from '@react-navigation/stack';
             secureTextEntry
           />
           </View>
+          
       
             {/* <Button
               title="Go to Profile"
@@ -50,8 +95,11 @@ import { createStackNavigator } from '@react-navigation/stack';
             /> */}
             <View style={{width:'100%',alignItems: 'center' }}>
 
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('chatWelcome')}>
+            {/* <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('chatWelcome')}>
               <Text style={styles.buttonText}>LOG IN</Text>
+            </TouchableOpacity> */}
+            <TouchableOpacity style={styles.button} onPress={() => sendMessageToServer(data)}>
+              <Text style={styles.buttonText}>LOG IN </Text>
             </TouchableOpacity>
             </View>
 
@@ -105,7 +153,7 @@ import { createStackNavigator } from '@react-navigation/stack';
       height: 80,
       display:'flex',
       justifyContent: 'center',
-      marginTop:70    },
+      marginTop:50    },
     input: {
       height: 50,
       margin: 12,

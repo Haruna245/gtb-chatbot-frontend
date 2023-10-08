@@ -4,6 +4,8 @@ Alert,ScrollView,KeyboardAvoidingView,Platform  } from 'react-native';
 import axios from 'axios';
 import { Audio } from 'expo-av';
 import { Feather,AntDesign } from '@expo/vector-icons';
+import { useRoute } from "@react-navigation/native";
+import { getGlobalData } from './ApiData';
 
 
 const ChatScreen2 = ({ navigation }) => {
@@ -18,6 +20,15 @@ const ChatScreen2 = ({ navigation }) => {
     const receivedMessageOpacity = new Animated.Value(0);
     const micButtonScale = useRef(new Animated.Value(1)).current;
     const scrollViewRef = useRef();//scroll modified
+    const route = useRoute();
+    
+    //const data1 = route.params.data;
+
+    const data = getGlobalData(); 
+    const firstname = data['first_name']
+    //Setusername(firstname)
+    //console.log(data['first_name'])
+
     useEffect(() => {
       //setIsListening(true);
         // Trigger the received message animation when a response is received
@@ -85,13 +96,16 @@ const ChatScreen2 = ({ navigation }) => {
   
         // Update chatData by appending the new received message
         setChatData((prevChatData) => [...prevChatData, receivedMessage]);
+        if(response){
+          const res = await axios.post('https://33b0-154-160-6-177.ngrok-free.app/users/items/', { question:message,answer:response });
+        }
       } catch (error) {
         console.error('Error sending message:', error);
       }
     };
   
     const sendMessageToServer = async (message) => {
-      const response = await axios.post('https://a436-154-160-5-95.ngrok-free.app/chat', { body: message });
+      const response = await axios.post('https://33b0-154-160-6-177.ngrok-free.app/chat', { body: message });
       return response.data; // Assuming the server responds with the message
     };
   
@@ -215,8 +229,8 @@ const ChatScreen2 = ({ navigation }) => {
       borderRadius: 8,
       //borderWidth: 1,
       borderColor: '#E0E0E0',}}>
-            <Text>Hello, Welcome to your customer Service Chatbot.
-              How may i help you today?
+            <Text>Hello {firstname}, Welcome to your customer Service Chatbot.
+              How may I help you today?
             </Text>
           </View>
           </View>

@@ -4,8 +4,12 @@ import { StyleSheet, Text, View,Button,ImageBackground,TouchableOpacity,TextInpu
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { AntDesign } from '@expo/vector-icons';
+import { useRoute } from "@react-navigation/native";
 
 export default function ChatWelcome({ navigation }) {
+  /* const route = useRoute();
+  const data1 = route.params.data;
+  console.log(data1) */
     return (
         <View style={{ flex: 1 }}>
       <ImageBackground
