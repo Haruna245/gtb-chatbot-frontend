@@ -19,7 +19,7 @@ import { setGlobalData } from './ApiData';
     }
 
     const sendMessageToServer = async (data) => {
-      const apiUrl ='https://33b0-154-160-6-177.ngrok-free.app/users/login';
+      const apiUrl ='http://127.0.0.1:8000/users/login';
       try {
         const response = await axios.post(apiUrl,data, {
           headers: {
@@ -106,6 +106,12 @@ import { setGlobalData } from './ApiData';
             <View style={{width:'100%',marginStart:70}}>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
               <Text style={styles.forgetPasswordText}>Forget Password?</Text>
+         
+              </TouchableOpacity>
+             </View>
+             <View style={{width:'100%',alignItems:'center'}}>
+              <TouchableOpacity onPress={() => navigation.navigate('ChatRegister')}>
+              <Text style={styles.forgetPasswordText}>Don't have an account?</Text>
          
               </TouchableOpacity>
              </View>

@@ -8,7 +8,7 @@ function Location({ navigation }) {
     const [text, onChangeText] = React.useState('');
 
     const FAQsData = [
-        { id:1, name: 'GTBank | Branch',location:'East Legon , Bathure St',state:'0547867153,Closed' },
+        { id:1, name: 'GTBank | Branch',location:'Achimota , Parcel N0.9',state:'0303963832,open' },
         { id:2, name: 'GTBank | ATM Legon Campus',location:'Central Cafetaria',state:'Open 24 hours' },
         { id:3, name: 'GTBank Labone| Branch',location:'Accra',state:'Opens Soon ' },
         { id:4, name: 'GTBank | ATM',location:'One Airport Square',state:'Opens 24 hours' },
@@ -20,7 +20,9 @@ function Location({ navigation }) {
         //const backgroundColor = item.isSent ? '#DCF8C6' : 'white';
     
         return (
-          <TouchableOpacity style={{backgroundColor:'white',height:70,justifyContent:'center',padding:10,borderBottomColor:'#FD8936',borderBottomWidth:1}}>
+          <TouchableOpacity style={{backgroundColor:'white',height:70,justifyContent:'center',padding:10,borderBottomColor:'#FD8936',borderBottomWidth:1}}
+          onPress={()=>navigation.navigate('Map')}
+          >
             <Text>{item.name}</Text>
             <Text>{item.location}</Text>
             <Text>{item.state}</Text>

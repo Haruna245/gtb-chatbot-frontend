@@ -46,7 +46,7 @@ export default function CustomerService({ navigation }){
           >
             <View style={styles.centeredView}>
 
-            <View style={{marginTop:60,width:'100%' }}>
+            <View style={{marginTop:40,width:'100%' }}>
           <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()}>
           <AntDesign name="left" size={24} color="black" />
           </TouchableOpacity>

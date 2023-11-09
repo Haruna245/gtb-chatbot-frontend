@@ -21,6 +21,9 @@ import FAQpage from './screens/FAQPage';
 import Location from './screens/Location';
 import FAQanswer from './screens/FAQanswer';
 import VoiceMsg from './screens/VoiceMsg';
+import FeedbackSuccess from './screens/feedbackSuccess';
+import Map from './screens/map';
+import ChatRegister from './screens/ChatRegister';
 /* function ChatScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -38,10 +41,13 @@ function MyStack() {
     <Stack.Navigator screenOptions={{  headerTitle: false,headerShown:false }}>
 
       <Stack.Screen name="Home" component={HomeScreen}  />
+      <Stack.Screen name="ChatRegister" component={ChatRegister}  />
       <Stack.Screen name="Location" component={Location}  />
+      <Stack.Screen name="Map" component={Map}  />
       <Stack.Screen name="FAQpage" component={FAQpage}  />
       <Stack.Screen name="FAQanswer" component={FAQanswer}  />
       <Stack.Screen name="FeedbackScreen" component={FeedbackScreen}  />
+      <Stack.Screen name="FeedbackSuccess" component={FeedbackSuccess}  />
       <Stack.Screen name="Notifications" component={NotificationsScreen} />
       <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />

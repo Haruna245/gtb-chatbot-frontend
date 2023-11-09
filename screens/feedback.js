@@ -1,10 +1,22 @@
 import React, { useState,useRef,useEffect  } from 'react';
 import { View, ImageBackground, Button, StyleSheet,TouchableOpacity,Text,TextInput,ScrollView } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import axios from 'axios';
 
 function FeedbackScreen({ navigation }) {
   const [text, onChangeText] = React.useState('');
+  const [rate, SetRate] = React.useState();
+  const [complete, Setcomplete] = React.useState();
   const scrollViewRef = useRef();
+
+  const SendFeedBack = async () => {
+    const response = await axios.post('http://127.0.0.1:8000/Feedback', { rate:rate,complete:complete,feedbackText:text} );
+    //return response.data; // Assuming the server responds with the message
+    if(response.status == 200){
+      onChangeText('')
+      navigation.navigate('FeedbackSuccess')
+    }
+  };
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -43,35 +55,35 @@ function FeedbackScreen({ navigation }) {
             </Text>
             </View>
             <View style={{flexDirection:'row',marginTop:5}}>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('1')}>
             <Text>1</Text>
             </TouchableOpacity>
             
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('2')}>
             <Text>2</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('3')}>
             <Text>3</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('4')}>
             <Text>4</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('5')}>
             <Text>5</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('6')}>
             <Text>6</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('7')}>
             <Text>7</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('8')}>
             <Text>8</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('9')}>
             <Text>9</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1}>
+            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('10')}>
             <Text>10</Text>
             </TouchableOpacity>
             </View>
@@ -90,13 +102,13 @@ function FeedbackScreen({ navigation }) {
               </Text>
             </View>
             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-              <TouchableOpacity style={styles.button2}>
+              <TouchableOpacity style={styles.button2} onPress={()=>Setcomplete('Yes')}>
                 <Text style={{color:'white'}}>Yes</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button2}>
+              <TouchableOpacity style={styles.button2} onPress={()=>Setcomplete('No')}>
                 <Text style={{color:'white'}}>No</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button2}>
+              <TouchableOpacity style={styles.button2} onPress={()=>Setcomplete('Not Yet')}>
                 <Text style={{color:'white',padding:5}}>Not Yet</Text>
               </TouchableOpacity>
             </View>
@@ -122,7 +134,7 @@ Privacy Policy.
             </View>
             <View style={{alignItems:'center'}}>
               <TouchableOpacity style={{backgroundColor:'#FD8936',borderColor:'#FD8936',borderWidth:1,width:'50%',height:50,alignItems:'center',justifyContent:'center',
-                                         borderRadius:10 }}>
+                                         borderRadius:10 }} onPress={SendFeedBack}>
                 <Text style={{color:'white'}}>Submit feedback</Text>
               </TouchableOpacity>
             </View>

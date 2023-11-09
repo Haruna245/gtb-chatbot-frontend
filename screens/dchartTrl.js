@@ -96,16 +96,16 @@ const ChatScreen2 = ({ navigation }) => {
   
         // Update chatData by appending the new received message
         setChatData((prevChatData) => [...prevChatData, receivedMessage]);
-        if(response){
+        /* if(response){
           const res = await axios.post('https://33b0-154-160-6-177.ngrok-free.app/users/items/', { question:message,answer:response });
-        }
+        } */
       } catch (error) {
         console.error('Error sending message:', error);
       }
     };
   
     const sendMessageToServer = async (message) => {
-      const response = await axios.post('https://33b0-154-160-6-177.ngrok-free.app/chat', { body: message });
+      const response = await axios.post('http://127.0.0.1:8000/chat', { body: message });
       return response.data; // Assuming the server responds with the message
     };
   
