@@ -8,7 +8,7 @@ function Location({ navigation }) {
     const [text, onChangeText] = React.useState('');
 
     const FAQsData = [
-        { id:1, name: 'GTBank | Branch',location:'Achimota , Parcel N0.9',state:'0303963832,open' },
+        { id:1, name: 'GTBank | Branch',location:'Haatso, Street',state:'0303963832,open' },
         { id:2, name: 'GTBank | ATM Legon Campus',location:'Central Cafetaria',state:'Open 24 hours' },
         { id:3, name: 'GTBank Labone| Branch',location:'Accra',state:'Opens Soon ' },
         { id:4, name: 'GTBank | ATM',location:'One Airport Square',state:'Opens 24 hours' },
