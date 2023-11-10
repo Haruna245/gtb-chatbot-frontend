@@ -19,7 +19,7 @@ import { setGlobalData } from './ApiData';
     }
 
     const sendMessageToServer = async (data) => {
-      const apiUrl ='http://127.0.0.1:8000/users/login';
+      const apiUrl ='https://xrvk8977-8000.euw.devtunnels.ms/users/login';
       try {
         const response = await axios.post(apiUrl,data, {
           headers: {
@@ -110,7 +110,7 @@ import { setGlobalData } from './ApiData';
               </TouchableOpacity>
              </View>
              <View style={{width:'100%',alignItems:'center'}}>
-              <TouchableOpacity onPress={() => navigation.navigate('ChatRegister')}>
+              <TouchableOpacity onPress={() => navigation.navigate('UserReg')}>
               <Text style={styles.forgetPasswordText}>Don't have an account?</Text>
          
               </TouchableOpacity>

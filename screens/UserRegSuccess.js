@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, ImageBackground, Button, StyleSheet,Image,Text, TouchableOpacity } from 'react-native';
 
-function FeedbackSuccess({ navigation }) {
+function UserSuccess({ navigation }) {
   return (
     <View style={{ flex: 1 }}>
       <View
@@ -12,7 +12,7 @@ function FeedbackSuccess({ navigation }) {
                   style={{ height: 150, width: 150 }}
                   source={require('../images/CheckMark.png')}
                 /> 
-        <Text>Feedback Submitted Successfully</Text>
+        <Text>Account Created Successfully</Text>
           {/* <Button
             title="Go to Profile"
             onPress={() => navigation.navigate('Profile')}
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FeedbackSuccess;
+export default UserSuccess;
