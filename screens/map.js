@@ -6,8 +6,8 @@ import * as Location from 'expo-location';
 
 export default function App({ navigation }) {
   const [initialRegion, setInitialRegion] = useState({
-    latitude: 5.66739, // Replace with your destination latitude 5.55602
-    longitude: -0.19153, // Replace with your destination longitude -0.1969
+    latitude: 5.6729548, // Replace with your destination latitude 5.55602,, 5.6729548,-0.2061793
+    longitude: -0.2061793, // Replace with your destination longitude -0.1969
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });

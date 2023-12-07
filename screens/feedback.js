@@ -1,5 +1,5 @@
 import React, { useState,useRef,useEffect  } from 'react';
-import { View, ImageBackground, Button, StyleSheet,TouchableOpacity,Text,TextInput,ScrollView } from 'react-native';
+import { View, ImageBackground, Button, StyleSheet,TouchableOpacity,Text,TextInput,ScrollView,TouchableHighlight } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import axios from 'axios';
 
@@ -8,15 +8,18 @@ function FeedbackScreen({ navigation }) {
   const [rate, SetRate] = React.useState();
   const [complete, Setcomplete] = React.useState();
   const scrollViewRef = useRef();
+  const [buttonColor, setButtonColor] = useState('black');
+  const [textbuttonColor, setTextButtonColor] = useState('black');
 
   const SendFeedBack = async () => {
-    const response = await axios.post('http://127.0.0.1:8000/Feedback', { rate:rate,complete:complete,feedbackText:text} );
+    const response = await axios.post('https://xrvk8977-8000.euw.devtunnels.ms/Feedback', { rate:rate,complete:complete,feedbackText:text} );
     //return response.data; // Assuming the server responds with the message
     if(response.status == 200){
       onChangeText('')
       navigation.navigate('FeedbackSuccess')
     }
   };
+  
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -55,36 +58,40 @@ function FeedbackScreen({ navigation }) {
             </Text>
             </View>
             <View style={{flexDirection:'row',marginTop:5}}>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('1')}>
-            <Text>1</Text>
+            <TouchableOpacity style={rate === '1' ? styles.buttonPressed : styles.button1}
+            onPress={() => {
+              SetRate('1');
+              setButtonColor('white'); // Change color to white on press
+            }}>
+            <Text style={{color:'black'}}>1</Text>
             </TouchableOpacity>
             
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('2')}>
-            <Text>2</Text>
+            <TouchableOpacity style={rate === '2' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('2');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>2</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('3')}>
-            <Text>3</Text>
+            <TouchableOpacity style={rate === '3' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('3');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>3</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('4')}>
-            <Text>4</Text>
+            <TouchableOpacity style={rate === '4' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('4');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>4</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('5')}>
-            <Text>5</Text>
+            <TouchableOpacity style={rate === '5' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('5');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>5</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('6')}>
-            <Text>6</Text>
+            <TouchableOpacity style={rate === '6' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('6');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>6</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('7')}>
-            <Text>7</Text>
+            <TouchableOpacity style={rate === '7' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('7');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>7</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('8')}>
-            <Text>8</Text>
+            <TouchableOpacity style={rate === '8' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('8');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>8</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('9')}>
-            <Text>9</Text>
+            <TouchableOpacity style={rate === '9' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('9');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>9</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button1} onPress={()=>SetRate('10')}>
-            <Text>10</Text>
+            <TouchableOpacity style={rate === '10' ? styles.buttonPressed : styles.button1} onPress={()=>{SetRate('10');setButtonColor('white');}}>
+            <Text style={{color:'black'}}>10</Text>
             </TouchableOpacity>
             </View>
             <View style={{marginTop:10,padding:20}}>
@@ -102,14 +109,14 @@ function FeedbackScreen({ navigation }) {
               </Text>
             </View>
             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-              <TouchableOpacity style={styles.button2} onPress={()=>Setcomplete('Yes')}>
-                <Text style={{color:'white'}}>Yes</Text>
+              <TouchableOpacity style={complete === 'Yes' ? styles.buttonPressed2 : styles.button2} onPress={()=>{Setcomplete('Yes');setButtonColor('white');}}>
+                <Text style={{color:'black'}}>Yes</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button2} onPress={()=>Setcomplete('No')}>
-                <Text style={{color:'white'}}>No</Text>
+              <TouchableOpacity style={complete === 'No' ? styles.buttonPressed2 : styles.button2} onPress={()=>{Setcomplete('No');setButtonColor('white');}}>
+                <Text style={{color:'black'}}>No</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.button2} onPress={()=>Setcomplete('Not Yet')}>
-                <Text style={{color:'white',padding:5}}>Not Yet</Text>
+              <TouchableOpacity style={complete === 'Not Yet' ? styles.buttonPressed2 : styles.button2} onPress={()=>{Setcomplete('Not Yet');setButtonColor('white');}}>
+                <Text style={{color:'black',padding:5}}>Not Yet</Text>
               </TouchableOpacity>
             </View>
             <View style={{marginTop:2,padding:20}}>
@@ -175,13 +182,34 @@ const styles = StyleSheet.create({
   button1:{
     width:22,
     height:22,
-    backgroundColor:'#FD8936',
+    //backgroundColor:'#FD8936',
+    backgroundColor:'white',
     borderRadius:20,
     alignItems:'center',
     justifyContent:'center',
     margin:5
   },
   button2:{
+    backgroundColor:'white',
+    width:62,
+    height:30,
+    alignItems:'center',
+    justifyContent:'center',
+    margin:10,
+    borderRadius:10
+  },
+  buttonPressed: {
+    // your styles when the button is pressed
+    backgroundColor: '#FD8936',
+    padding: 10,
+    width:22,
+    height:22,
+    borderRadius:20,
+    margin:5,
+    
+    // other styles...
+  },
+  buttonPressed2:{
     backgroundColor:'#FD8936',
     width:62,
     height:30,
@@ -189,7 +217,7 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     margin:10,
     borderRadius:10
-  }
+  },
 });
 
 export default FeedbackScreen;

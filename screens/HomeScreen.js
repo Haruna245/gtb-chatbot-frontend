@@ -103,12 +103,12 @@ import { setGlobalData } from './ApiData';
             </TouchableOpacity>
             </View>
 
-            <View style={{width:'100%',marginStart:70}}>
+            {/* <View style={{width:'100%',marginStart:70}}>
               <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
               <Text style={styles.forgetPasswordText}>Forget Password?</Text>
          
               </TouchableOpacity>
-             </View>
+             </View> */}
              <View style={{width:'100%',alignItems:'center'}}>
               <TouchableOpacity onPress={() => navigation.navigate('UserReg')}>
               <Text style={styles.forgetPasswordText}>Don't have an account?</Text>
